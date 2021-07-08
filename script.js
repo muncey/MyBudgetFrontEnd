@@ -1,7 +1,7 @@
 const renderActions = (idx) => {
   return `
-  <button type="button" class="edit-button" data-idx="${idx}">Edit</button>
-  <button type="button" class="delete-button" data-idx="${idx}">Delete</button>`
+  <button type="button" class="edit-button btn btn-link" data-idx="${idx}">Edit</button>
+  <button type="button" class="delete-button btn btn-link" data-idx="${idx}">Delete</button>`
 }
 
 
@@ -11,8 +11,8 @@ const renderEditRow = (data, idx) => {
             <td><input type="text" id="editItem" value="${data.item}"></td>
             <td><input type="number" id="editAmount" value="${parseFloat(data.amount)}"></td>
             <td>
-              <button type="button" class="save-button" data-idx="${idx}">Save</button>
-              <button type="button" class="cancel-button" data-idx="${idx}">Cancel</button>
+              <button type="button" class="save-button btn btn-link" data-idx="${idx}">Save</button>
+              <button type="button" class="cancel-button btn btn-link" data-idx="${idx}">Cancel</button>
             </td>
           </tr>`
 }
@@ -77,9 +77,9 @@ const addBudgetItem = () => {
 const editBudgetItem = (idx) => {
   id = 'budgetTable';
   
-  document.getElementById('newItem').setAttribute('disabled', true);
-  document.getElementById('newAmount').setAttribute('disabled', true);
-  document.getElementById('addButton').setAttribute('disabled', true);
+  document.getElementById('newItem').disabled = true;
+  document.getElementById('newAmount').disabled = true;
+  document.getElementById('addButton').disabled = true;
 
   document.getElementById(id).tBodies[0].innerHTML = renderRows(budgetItems, idx);
 }
@@ -87,9 +87,9 @@ const editBudgetItem = (idx) => {
 const cancelEdit = () => {
   id = 'budgetTable';
 
-  document.getElementById('newItem').setAttribute('disabled', false);
-  document.getElementById('newAmount').setAttribute('disabled', false);
-  document.getElementById('addButton').setAttribute('disabled', false);
+  document.getElementById('newItem').disabled = false;
+  document.getElementById('newAmount').disabled = false;
+  document.getElementById('addButton').disabled = false;
 
   document.getElementById(id).tBodies[0].innerHTML = renderRows(budgetItems);
 }
@@ -102,9 +102,9 @@ const save = (idx) => {
   saveBudget('my-budget');
   renderPage('budgetTable');
 
-  document.getElementById('newItem').setAttribute('disabled', false);
-  document.getElementById('newAmount').setAttribute('disabled', false);
-  document.getElementById('addButton').setAttribute('disabled', false);
+  document.getElementById('newItem').disabled = false;
+  document.getElementById('newAmount').disabled = false;
+  document.getElementById('addButton').disabled = false;
 }
 
 const deleteItem = (idx) => {
