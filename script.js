@@ -18,8 +18,12 @@ const budgetItems = [{
   amount: 1.00
 }]
 
-const renderPage = (id) => {
-  document.getElementById(id).tBodies[0].innerHTML = renderRows(budgetItems);
+const calculateTotals = () => {
+  let total = 0.00;
+  for (let i=0; i<budgetItems.length; i++) {
+    total+=parseFloat(budgetItems[i].amount);
+  }
+  return { item: 'Total', amount: total }
 }
 
 const addBudgetItem = () => {
@@ -28,6 +32,12 @@ const addBudgetItem = () => {
     amount: document.getElementById('newAmount').value
   }
   budgetItems.push(budgetItem);
+}
+
+
+const renderPage = (id) => {
+  document.getElementById(id).tBodies[0].innerHTML = renderRows(budgetItems);
+  document.getElementById(id).tFoot.innerHTML = renderRow(calculateTotals());
 }
 
 document.addEventListener('DOMContentLoaded', function($ev) {
