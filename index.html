@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <title>repl.it</title>
+    <title>My Budget</title>
     <link href="style.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
@@ -13,9 +13,9 @@
         <h3>New Item</h3>
         <form>
           <label>Item</label>
-          <input type="text" id="newItem">
+          <input type="text" autocomplete="off" id="newItem">
           <label>Amount</label>
-          <input type="number" id="newAmount">
+          <input type="number" autocomplete="off" id="newAmount">
           <button id="addButton" type="button">Add</button>
         </form>
         <h3>Items</h3>
@@ -24,6 +24,7 @@
             <tr>
               <th>Item</th>
               <th>Amount</th>
+              <th>Action</th>
             </tr>
           </thead>
           <tbody>
