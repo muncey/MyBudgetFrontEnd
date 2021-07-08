@@ -4,13 +4,6 @@ const renderActions = (idx) => {
   <button type="button" class="delete-button" data-idx="${idx}">Delete</button>`
 }
 
-const renderRow = (data, idx) => {
-  return `<tr>
-            <td>${data.item}</td>
-            <td>$${data.amount}</td>
-            <td>${idx != null ? renderActions(idx) : '' }</td>
-          </tr>`
-};
 
 const renderEditRow = (data, idx) => {
 
@@ -23,6 +16,14 @@ const renderEditRow = (data, idx) => {
             </td>
           </tr>`
 }
+
+const renderRow = (data, idx) => {
+  return `<tr>
+            <td>${data.item}</td>
+            <td>$${data.amount}</td>
+            <td>${idx != null ? renderActions(idx) : '' }</td>
+          </tr>`
+};
 
 const renderRows = (data, idx) => {
   const html = [];
